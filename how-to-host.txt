@@ -1,0 +1,32 @@
+`> jupyter lab --ip=0.0.0.0 --port=8888 --no-browser`
+This command starts the real-time collaboration server. An IP of all 0s acts as a fall-back that really means "Whatever network I'm connected to." Your terminal window should show a link that you can use to access the Jupyter web interface when it's ready.
+
+`> hostname -I`
+This command shows your IP. Non-hosts need to use this with the port number to access the interface.
+
+Once you have the IP, mesh it with the port number you ran the lab with, kinda like this:
+`http://<ip address>:<port number>`
+...and share this link with the team.
+
+Now, you might have to open a slot in your firewall to let the people through... but you really shouldn't expose a port outside of the local network.
+Since I'm running Linux Mint, I can do something like this:
+`> sudo ufw allow from 192.168.1.0/24 to any port 8888 proto tcp`
+...replacing that example subnet with what I'm actually on.
+
+Getting your subnet shouldn't be too hard.
+1. Get your IP.
+2. Find your network's subnet mask.
+3. mesh them together like `<ip>/<mask size>
+
+Windows people can usually use ipconfig, but I have ifconfig.
+
+`inet 10.152.1.132  netmask 255.255.192.0  broadcast 10.152.63.255`
+Snagged this from running linux's ifconfig when I was connected to eduroam. Apparently they have a Class B netmask, /18. It should allow roughly 16,000 machines to connect at the same time.
+`inet 10.153.10.5  netmask 255.255.224.0  broadcast 10.153.31.255`
+Ditto, but for Dorms. This one has a /19 netmask, supporting 8,000 machines at once. 
+
+(yes, i'm in a computer networks class right now. how could you tell?)
+
+
+Figure out some key talking points about how we implemented things!
+
