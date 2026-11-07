@@ -1,5 +1,5 @@
-./do-not-commit/
-./.ipynb_checkpoints/
-./.jupyter/
-./.venv/
-./.jupyter_ystore.db
+do-not-commit/
+.ipynb_checkpoints/
+.jupyter/
+.venv/
+.jupyter_ystore.db
